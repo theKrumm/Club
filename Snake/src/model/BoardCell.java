@@ -18,6 +18,15 @@ public class BoardCell {
 	public BoardCell(int row, int col) {
 		this.row = row;
 		this.col = col;
+		cellType = EMPTY_ROOM;
+	}
+	
+	public int getRow() {
+		return row;
+	}
+	
+	public int getCol() {
+		return col;
 	}
 
 }

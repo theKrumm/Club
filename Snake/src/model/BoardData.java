@@ -1,6 +1,5 @@
 package model;
 
-import java.util.Random;
 
 public class BoardData {
 	
@@ -24,7 +23,6 @@ public class BoardData {
 	}
 	
 	private void foodGenerate() {
-		Random rand = new Random();
 		int row = (int)(Math.random() * (rowCount));
 		int col = (int)(Math.random() * (colCount));
 		
