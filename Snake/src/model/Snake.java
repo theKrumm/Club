@@ -1,5 +1,7 @@
 package model;
 
+// snake and its direction.
+
 import java.awt.Point;
 import java.util.ArrayList;
 
