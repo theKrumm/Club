@@ -25,6 +25,10 @@ public class Snake {
 		return body;
 	}
 	
+	public Point getTail() {
+		return tail;
+	}
+	
 	public void addBody() {
 		Point prev = body.get(body.size() - 2);
 		int dx = (int) (tail.getX() - prev.getX());
@@ -42,11 +46,9 @@ public class Snake {
 			} else {
 				body.add(new Point((int) tail.getX(), (int) tail.getY() - 1));
 			}
-			
 		}
 		body.add(tail);
-		tail = body.get(body.size() - 1);
-		
+		tail = body.get(body.size() - 1);	
 	}
 	
 }
