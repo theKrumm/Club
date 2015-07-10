@@ -26,8 +26,8 @@ public class BoardData {
 		int row = (int)(Math.random() * (rowCount));
 		int col = (int)(Math.random() * (colCount));
 		
-		if (map[row][col].cellType == BoardCell.EMPTY_ROOM) {
-			map[row][col].cellType = BoardCell.TARGET_ROOM;
+		if (map[row][col].getType() == BoardCell.EMPTY_ROOM) {
+			map[row][col].setType(BoardCell.TARGET_ROOM);
 		} else {
 			foodGenerate();
 		}

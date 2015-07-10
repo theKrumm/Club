@@ -13,7 +13,7 @@ public class BoardCell {
 	//column of the cell.
 	private final int col;
 	// which kind of cell it is (empty, body room, or target room).
-	public int cellType;
+	private int cellType;
 
 	public BoardCell(int row, int col) {
 		this.row = row;
@@ -27,6 +27,14 @@ public class BoardCell {
 	
 	public int getCol() {
 		return col;
+	}
+	
+	public int getType() {
+		return cellType;
+	}
+	
+	public void setType(int type) {
+		cellType = type;
 	}
 
 }
