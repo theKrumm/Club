@@ -18,8 +18,10 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class Main extends Application implements EventHandler<ActionEvent> {
-	Button myButton1,myButton2,myButton3,myButton4,myButton5, myButton6;
-	Scene scene;//scene1
+	Button myButton2,myButton3,myButton4;
+	Scene scene;
+	MenuItem small, medium, large;
+	BorderPane borderpanel;
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -37,9 +39,18 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 			fileMenu.getItems().add(new MenuItem("Exit"));
 			
 			Menu viewMenu = new Menu("View");
-			viewMenu.getItems().add(new MenuItem("Small"));
-			viewMenu.getItems().add(new MenuItem("Meduim"));
-			viewMenu.getItems().add(new MenuItem("Large"));
+		    small = new MenuItem("Small");
+		    small.setOnAction(e->System.out.print("Small screen!!"));
+		    //small.setOnAction(e -> scene = new Scene(borderpanel, 300,200));
+			viewMenu.getItems().add(small); 
+			
+			medium = new MenuItem("Medium");
+			viewMenu.getItems().add(medium); 
+			
+			
+			large = new MenuItem("Large");
+			viewMenu.getItems().add(large); 
+		
 			
 			Menu highScore = new Menu("HighScore");
 			highScore.getItems().add(new MenuItem("First score"));
@@ -51,10 +62,10 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 			helpMenu.getItems().add(new MenuItem("Score algorithm"));
 			MenuBar menuBar = new MenuBar();
 			menuBar.getMenus().addAll(fileMenu,viewMenu, highScore, helpMenu);
-			
 			myButton2 = new Button();
 			myButton2.setText("Start Game");
 			myButton2.setOnAction(e ->System.out.println("Welcome to Game Center!!, Have fun:)"));
+			
 			myButton3 = new Button();
 			myButton3.setText("Pause Game");
 			myButton3.setOnAction(e -> AlertBox.display());
@@ -80,7 +91,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 			//myButton6.setOnAction(e ->primaryStage.setScene(scene));
 			
 			
-			BorderPane borderpanel = new BorderPane();
+			borderpanel = new BorderPane();
 			//topMenu.getItems().addAll(fileMenu, viewMenu, highScore, helpMenu);
 			//fileMenu.setPadding(new Insets(0,10,10,10));
 			bottomMenu.getChildren().addAll(myButton2, myButton3, myButton4, scoreLabel, scorefield);
@@ -89,6 +100,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 			borderpanel.setBottom(bottomMenu);
 			
 			scene = new Scene(borderpanel,600,400);
+			//small.setOnAction(e->new Scene(borderpanel, 800, 600));
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			scene.getStylesheets().add("application.css");
@@ -100,9 +112,9 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 	}
 	@Override
 	public void handle(ActionEvent event) {
-//		if(event.getSource() == myButton1){
-//			System.out.println("I will let you know what is in Menu");
-//		}
+		if(event.getSource() == small){
+			scene = new Scene(borderpanel, 800, 800);
+		}
 
 		if(event.getSource() == myButton4){
 			System.out.println("I hope you enjoyed the game, GoodBye!!");
